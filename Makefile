@@ -12,7 +12,7 @@ IFLAGS = -I$(INC_DIR)
 vpath %.cpp $(foreach dir, $(SRC_DIR), $(dir):)
 
 CHECKERS = dimension_sign.cpp equal.cpp check_format.cpp intruder.cpp nonsense.cpp operand.cpp unknown.cpp variable.cpp
-FIND_VALUES = discriminant_calculation.cpp determine_abc.cpp determine_degree.cpp find_abc.cpp
+FIND_VALUES = discriminant_calculation.cpp determine_degree.cpp find_abc.cpp
 MATHS = ft_sqrt.cpp
 PRINTS = print_reduced_form.cpp
 

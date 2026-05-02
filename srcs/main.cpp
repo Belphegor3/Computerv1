@@ -17,11 +17,14 @@ int main(int ac, char **av){
 	}
 	else
 		equation = av[1];
-	check_intruder(equation);
-	check_format(equation);
+	if (check_intruder(equation))
+		return EXIT_FAILURE;
+	if (check_format(equation))
+		return EXIT_FAILURE;
 	determine_degree(equation);
 	find_abc(equation);
-	check_nonsense();
+	if (check_nonsense())
+		return EXIT_FAILURE;
 	print_reduced_form();
 	if (a != 0){
 		double discriminant = discriminant_calculation();

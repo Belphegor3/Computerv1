@@ -24,13 +24,12 @@ int check_operand(char *splitted);
 int check_unknown(char *splitted);
 int check_variable(char *splitted, double *nb);
 
-void check_format(string equation);
-void check_nonsense();
-void check_intruder(string equation);
+int check_format(string equation);
+int check_nonsense();
+int check_intruder(string equation);
 
 
 void determine_degree(string equation);
-void determine_abc(string check, double sign);
 void find_abc(string equation);
 double discriminant_calculation();
 

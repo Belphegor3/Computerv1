@@ -1,5 +1,19 @@
 #include "computerv1.hpp"
 
+static void determine_abc(string check, double sign){
+	string to_check = check.substr(0, check.length() - 4);
+	char *nb = new char [to_check.length() + 1];
+
+	strcpy(nb, to_check.c_str());
+	if (check[check.length() - 1] == '0')
+		c += (strtod(nb, NULL) * sign);
+	if (check[check.length() - 1] == '1')
+		b += (strtod(nb, NULL) * sign);
+	if (check[check.length() - 1] == '2')
+		a += (strtod(nb, NULL) * sign);
+	delete[] nb;
+}
+
 extern void find_abc(string equation){
 	string check;
 	size_t found;
@@ -9,14 +23,11 @@ extern void find_abc(string equation){
 	found = equation.find("^");
 	while (found != string::npos){
 		check = equation.substr(0, found+2);
-		// cout << "\x1b[31m" << check << "\x1b[0m\n";
 		equation.erase(0, found+3);
-		// cout << "\x1b[33m" << equation << "\x1b[0m\n";
 		if (post_equal == 1)
 			determine_abc(check, -sign);
 		else
 			determine_abc(check, sign);
-		// cout << "\x1b[35mvaleur de a: " << a << "\nvaleur de b: " << b << "\nvaleur de c: " << c << "\n\x1b[0m";
 		if (equation[0] == '=')
 			post_equal = 1;
 		if (equation[0] == '-')
